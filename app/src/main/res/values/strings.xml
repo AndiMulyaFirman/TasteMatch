@@ -3,4 +3,11 @@
     <string name="app_Desc">Indonesian Meal Recommendation</string>
     <string name="login_lable">Login\n</string>
     <string name="dont_have_account">Don \\\'t have account?</string>
+    <string name="email_format">\\\'@\\\' Use Email Fromat!</string>
+    <string name="password_min">password of at least 8 characters</string>
+    <string name="register_lable">Register</string>
+    <string name="password_lable">Password\n</string>
+    <string name="email_lable">Email\n</string>
+    <string name="i_having_account">Already have account?</string>
+    <string name="username_lable">Username\n</string>
 </resources>
