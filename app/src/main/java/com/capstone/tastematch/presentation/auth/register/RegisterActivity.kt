@@ -1,12 +1,12 @@
-package com.capstone.tastematch.presentation.auth.logout
+package com.capstone.tastematch.presentation.auth.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.capstone.tastematch.R
 
-class LogoutActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_logout)
+        setContentView(R.layout.activity_register)
     }
 }
