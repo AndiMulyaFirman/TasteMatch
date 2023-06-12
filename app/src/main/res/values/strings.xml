@@ -2,13 +2,18 @@
     <string name="app_name">TasteMatch</string>
     <string name="app_Desc">Indonesian Meal Recommendation</string>
     <string name="login_lable">Login</string>
-    <string name="dont_have_account">Don \\\'t have account?</string>
+    <string name="dont_have_account">Don\\\'t have account?</string>
     <string name="email_format">\\\'@\\\' Use Email Fromat!</string>
     <string name="password_min">password of at least 8 characters</string>
     <string name="register_lable">Register</string>
-    <string name="password_lable">Password\n</string>
-    <string name="email_lable">Email\n</string>
+    <string name="password_lable">Password</string>
+    <string name="email_lable">Email</string>
     <string name="i_having_account">Already have account?</string>
-    <string name="username_lable">Username\n</string>
+    <string name="username_lable">Username</string>
     <string name="confirm_password_lable">Confirm Password</string>
+    <string name="data_user_lable">Input Data Profile</string>
+    <string name="save_lable">Save</string>
+    <string name="height_lable">Height</string>
+    <string name="age_lable">Age</string>
+    <string name="weight_lable">Weight</string>
 </resources>
