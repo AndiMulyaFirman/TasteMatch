@@ -16,4 +16,5 @@
     <string name="height_lable">Height</string>
     <string name="age_lable">Age</string>
     <string name="weight_lable">Weight</string>
+    <string name="name_lable">Name</string>
 </resources>

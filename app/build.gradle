@@ -41,11 +41,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.9.0'
-    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+    implementation 'com.google.firebase:firebase-common-ktx:20.3.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
     implementation 'androidx.annotation:annotation:1.6.0'
 
     //CameraX
@@ -54,9 +53,9 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:${camerax_version}"
     implementation "androidx.camera:camera-view:${camerax_version}"
 
-    // Import the Firebase BoM
+    // Import Firebase
     implementation 'com.google.firebase:firebase-auth:22.0.0'
-
+    implementation 'com.google.firebase:firebase-firestore:24.6.1'
     // Add other dependencies here
     // ...
 }
