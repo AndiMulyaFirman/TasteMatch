@@ -2,15 +2,19 @@ package com.capstone.tastematch.presentation.auth.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.databinding.ActivityLoginBinding
 import com.capstone.tastematch.presentation.auth.register.RegisterActivity
+import com.capstone.tastematch.presentation.formInput.DataUserActivity
 import com.capstone.tastematch.presentation.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        playAnimation()
         firebaseAuth = FirebaseAuth.getInstance()
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -37,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, DataUserActivity::class.java)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -49,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
             }
         }
+        playAnimation()
     }
 
     private fun playAnimation() {
@@ -69,12 +73,18 @@ class LoginActivity : AppCompatActivity() {
     }
 //  masih terjadi error ketika regsiter di lakukan maka akan menuju ke halaman main, di karenakan code di bawah ini,
 //    kode ini berguna untuk memastikan tidak masuk ke halaman login jika sudah pernah login sebelumnya
-//    override fun onStart() {
-//        super.onStart()
-//
-//        if(firebaseAuth.currentUser != null){
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
+override fun onStart() {
+    super.onStart()
+
+    firebaseAuth.currentUser?.let { user ->
+        if (!intent.getBooleanExtra("fromRegistration", false)) {
+            val intent = Intent(this, DataUserActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+}
+
+
+
 }
