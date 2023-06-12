@@ -1,7 +1,10 @@
 package com.capstone.tastematch.presentation.auth.register
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.databinding.ActivityRegisterBinding
@@ -19,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        playAnimation()
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.tvLoginHere.setOnClickListener {
@@ -50,5 +54,25 @@ class RegisterActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun playAnimation() {
+        val registerTitle = ObjectAnimator.ofFloat(binding.tvRegister, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+        val registerEmail = ObjectAnimator.ofFloat(binding.edtEmail, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+        val registerPassword = ObjectAnimator.ofFloat(binding.edtPassword, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+        val confirmPassword = ObjectAnimator.ofFloat(binding.confirmPassword, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+        val registerName = ObjectAnimator.ofFloat(binding.edtName, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+        val registerButton = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(DURATION2.toLong())
+
+        AnimatorSet().apply {
+            playSequentially(registerTitle, registerEmail, registerPassword, confirmPassword, registerName, registerButton)
+            startDelay = DURATION2.toLong()
+            start()
+        }
+    }
+
+    companion object {
+        const val DURATION = 4000
+        const val DURATION2 = 400
     }
 }
