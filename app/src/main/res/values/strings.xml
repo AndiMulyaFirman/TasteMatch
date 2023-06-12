@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TasteMatch</string>
     <string name="app_Desc">Indonesian Meal Recommendation</string>
-    <string name="login_lable">Login\n</string>
+    <string name="login_lable">Login</string>
     <string name="dont_have_account">Don \\\'t have account?</string>
     <string name="email_format">\\\'@\\\' Use Email Fromat!</string>
     <string name="password_min">password of at least 8 characters</string>
@@ -10,4 +10,5 @@
     <string name="email_lable">Email\n</string>
     <string name="i_having_account">Already have account?</string>
     <string name="username_lable">Username\n</string>
+    <string name="confirm_password_lable">Confirm Password</string>
 </resources>

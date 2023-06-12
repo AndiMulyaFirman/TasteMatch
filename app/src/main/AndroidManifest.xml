@@ -23,12 +23,9 @@
         <activity
             android:name=".presentation.detail.DetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".presentation.auth.register.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.auth.login.LoginActivity"
-            android:exported="false" />
+
+
+
         <activity
             android:name=".presentation.splashscreen.SplashscreenActivity"
             android:exported="true"
@@ -40,8 +37,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.auth.register.RegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.auth.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
