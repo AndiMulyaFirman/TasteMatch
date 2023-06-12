@@ -22,7 +22,6 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        playAnimation()
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.tvLoginHere.setOnClickListener {
@@ -54,6 +53,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
         }
+        playAnimation()
     }
 
     private fun playAnimation() {
@@ -72,7 +72,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val DURATION = 4000
         const val DURATION2 = 400
     }
 }
