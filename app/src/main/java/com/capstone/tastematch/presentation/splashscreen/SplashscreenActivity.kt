@@ -11,6 +11,9 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowManager
 import com.capstone.tastematch.databinding.ActivitySplashscreenBinding
+import com.capstone.tastematch.presentation.auth.login.LoginActivity
+import com.capstone.tastematch.presentation.main.MainActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 @SuppressLint("CustomSplashScreen")
@@ -20,6 +23,7 @@ class SplashscreenActivity : AppCompatActivity() {
 //    private lateinit var userPreferences: UserPreferences
     private lateinit var binding: ActivitySplashscreenBinding
     private val delayDuration: Long = 3000
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,16 +38,10 @@ class SplashscreenActivity : AppCompatActivity() {
 //        userModel = userPreferences.getUser()
 
 
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            if (userModel.Token == "") {
-//                val intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent)
-//            } else {
-//                val intent = Intent(this, MainActivity::class.java)
-//                startActivity(intent)
-//            }
-//            finish()
-//        }, delayDuration)
+        Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+        }, delayDuration)
 
         playAnimation()
     }
@@ -57,4 +55,16 @@ class SplashscreenActivity : AppCompatActivity() {
             start()
         }
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if(firebaseAuth.currentUser != null){
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//        } else {
+//            val intent = Intent(this, LoginActivity::class.java)
+//            startActivity(intent)
+//        }
+//    }
 }
