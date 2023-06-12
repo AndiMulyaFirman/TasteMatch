@@ -119,7 +119,6 @@ class DataUserActivity : AppCompatActivity() {
                     }
                 }
                 .addOnFailureListener { exception ->
-                    // Error occurred while checking user data
                     Toast.makeText(this, "Failed to check user data!", Toast.LENGTH_SHORT).show()
                     Log.e(TAG, "Error checking user data: ${exception.message}")
                 }
