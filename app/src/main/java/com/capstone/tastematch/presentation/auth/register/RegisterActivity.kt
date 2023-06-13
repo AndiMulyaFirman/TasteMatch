@@ -61,11 +61,10 @@ class RegisterActivity : AppCompatActivity() {
         val registerEmail = ObjectAnimator.ofFloat(binding.edtEmail, View.ALPHA, 1f).setDuration(DURATION2.toLong())
         val registerPassword = ObjectAnimator.ofFloat(binding.edtPassword, View.ALPHA, 1f).setDuration(DURATION2.toLong())
         val confirmPassword = ObjectAnimator.ofFloat(binding.confirmPassword, View.ALPHA, 1f).setDuration(DURATION2.toLong())
-        val registerName = ObjectAnimator.ofFloat(binding.edtName, View.ALPHA, 1f).setDuration(DURATION2.toLong())
         val registerButton = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(DURATION2.toLong())
 
         AnimatorSet().apply {
-            playSequentially(registerTitle, registerEmail, registerPassword, confirmPassword, registerName, registerButton)
+            playSequentially(registerTitle, registerEmail, registerPassword, confirmPassword, registerButton)
             startDelay = DURATION2.toLong()
             start()
         }
