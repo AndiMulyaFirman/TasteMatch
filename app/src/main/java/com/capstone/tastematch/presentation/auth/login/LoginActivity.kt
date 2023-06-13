@@ -40,19 +40,45 @@ class LoginActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, DataUserActivity::class.java)
-                        startActivity(intent)
+                        checkUserData()
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-
                     }
                 }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
             }
         }
         playAnimation()
+    }
+
+    private fun checkUserData() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("user").document(userId)
+
+            userDocumentRef.get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        // User data exists, already filled in
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // User data doesn't exist, navigate to the data entry screen
+                        val intent = Intent(this, DataUserActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Failed to check user data!", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "Error checking user data: ${exception.message}")
+                }
+        }
     }
 
     private fun playAnimation() {
@@ -71,20 +97,4 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         const val DURATION2 = 400
     }
-//  masih terjadi error ketika regsiter di lakukan maka akan menuju ke halaman main, di karenakan code di bawah ini,
-//    kode ini berguna untuk memastikan tidak masuk ke halaman login jika sudah pernah login sebelumnya
-override fun onStart() {
-    super.onStart()
-
-    firebaseAuth.currentUser?.let { user ->
-        if (!intent.getBooleanExtra("fromRegistration", false)) {
-            val intent = Intent(this, DataUserActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
-}
-
-
-
 }

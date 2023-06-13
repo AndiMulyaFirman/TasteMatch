@@ -4,26 +4,24 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.databinding.ActivitySplashscreenBinding
 import com.capstone.tastematch.presentation.auth.login.LoginActivity
+import com.capstone.tastematch.presentation.formInput.DataUserActivity
 import com.capstone.tastematch.presentation.main.MainActivity
 import com.google.firebase.auth.FirebaseAuth
-
+import com.google.firebase.firestore.FirebaseFirestore
 
 @SuppressLint("CustomSplashScreen")
 class SplashscreenActivity : AppCompatActivity() {
-
-//    private lateinit var userModel: User
-//    private lateinit var userPreferences: UserPreferences
     private lateinit var binding: ActivitySplashscreenBinding
-    private val delayDuration: Long = 3000
     private lateinit var firebaseAuth: FirebaseAuth
+    private val TAG = "SplashscreenActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,19 +32,8 @@ class SplashscreenActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-//        userPreferences = UserPreferences(this)
-//        userModel = userPreferences.getUser()
-
-
-        Handler(Looper.getMainLooper()).postDelayed({
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-        }, delayDuration)
-
         playAnimation()
     }
-
     private fun playAnimation() {
         val title1 = ObjectAnimator.ofFloat(binding.tvNameApp, View.ALPHA, 1f).setDuration(1000)
         val title2 = ObjectAnimator.ofFloat(binding.tvDescApp, View.ALPHA, 1f).setDuration(1500)
@@ -56,16 +43,37 @@ class SplashscreenActivity : AppCompatActivity() {
             start()
         }
     }
+    override fun onStart() {
+        super.onStart()
 
-//    override fun onStart() {
-//        super.onStart()
-//
-//        if(firebaseAuth.currentUser != null){
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//        } else {
-//            val intent = Intent(this, LoginActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val userId = currentUser?.uid
+
+        if (userId != null) {
+            val userDocumentRef = FirebaseFirestore.getInstance().collection("user").document(userId)
+
+            userDocumentRef.get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        // User data exists, already filled in
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // User data doesn't exist, navigate back to DataUserActivity
+                        val intent = Intent(this, DataUserActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Failed to check user data!", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "Error checking user data: ${exception.message}")
+                }
+        } else {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
 }
