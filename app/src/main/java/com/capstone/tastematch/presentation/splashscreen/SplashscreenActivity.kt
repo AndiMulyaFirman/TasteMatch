@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.databinding.ActivitySplashscreenBinding
 import com.capstone.tastematch.presentation.auth.login.LoginActivity
 import com.capstone.tastematch.presentation.formInput.DataUserActivity
-import com.capstone.tastematch.presentation.main.MainActivity
+import com.capstone.tastematch.presentation.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -56,7 +56,7 @@ class SplashscreenActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document.exists()) {
                         // User data exists, already filled in
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
                         finish()
                     } else {

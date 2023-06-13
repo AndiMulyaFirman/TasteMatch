@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.R
 import com.capstone.tastematch.databinding.ActivityDataUserBinding
-import com.capstone.tastematch.presentation.main.MainActivity
+import com.capstone.tastematch.presentation.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -55,7 +55,7 @@ class DataUserActivity : AppCompatActivity() {
                 db.collection("user").document(userId).set(userMap)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Successfully Added!", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, HomeActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                     }

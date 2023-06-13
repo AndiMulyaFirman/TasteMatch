@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.databinding.ActivityLoginBinding
 import com.capstone.tastematch.presentation.auth.register.RegisterActivity
 import com.capstone.tastematch.presentation.formInput.DataUserActivity
-import com.capstone.tastematch.presentation.main.MainActivity
+import com.capstone.tastematch.presentation.home.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnSuccessListener { document ->
                     if (document.exists()) {
                         // User data exists, already filled in
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, HomeActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)
                         finish()
