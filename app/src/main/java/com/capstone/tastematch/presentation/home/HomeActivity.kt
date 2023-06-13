@@ -1,10 +1,10 @@
-package com.capstone.tastematch.presentation.main
+package com.capstone.tastematch.presentation.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.R
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 //    override fun onBackPressed() {
 //        // Disable the back button
 //    }

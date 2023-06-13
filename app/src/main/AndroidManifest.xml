@@ -30,7 +30,7 @@
         android:name=".presentation.auth.register.RegisterActivity"
         android:exported="false" />
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.home.HomeActivity"
             android:exported="true" />
         <activity
             android:name=".presentation.auth.login.LoginActivity"
