@@ -11,7 +11,6 @@ import com.capstone.tastematch.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.squareup.picasso.Picasso
 
 class ProfileFragment : Fragment() {
 
@@ -72,10 +71,10 @@ class ProfileFragment : Fragment() {
                     val weight = documentSnapshot.getString("Weight")
 
                     // Tampilkan data pada TextView yang sesuai
-                    nameTextView.text = "Name: $name"
-                    ageTextView.text = "Age: $age"
-                    heightTextView.text = "Height: $height"
-                    weightTextView.text = "Weight: $weight"
+                    nameTextView.text = "$name "
+                    ageTextView.text = "$age Th"
+                    heightTextView.text = "$height Cm"
+                    weightTextView.text = "$weight Kg"
                 }
             }
             .addOnFailureListener { e ->
