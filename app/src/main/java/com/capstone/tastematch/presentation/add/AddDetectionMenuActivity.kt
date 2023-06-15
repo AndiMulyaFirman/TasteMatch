@@ -27,6 +27,7 @@ import com.capstone.tastematch.R
 import com.capstone.tastematch.databinding.ActivityAddDetectionMenuBinding
 import com.capstone.tastematch.ml.IngredientDetection
 import com.capstone.tastematch.presentation.main.MainActivity
+import com.capstone.tastematch.presentation.result.ResultActivity
 import com.capstone.tastematch.presentation.search.SearchFragment
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.TensorImage
@@ -91,34 +92,22 @@ class AddDetectionMenuActivity : AppCompatActivity() {
             detectionResults.sortByDescending { it.second }
             val top10Results = detectionResults.take(10)
 
-            val bahanText = top10Results.joinToString("\n") { "${it.first}: ${it.second}" }
-            Log.d("DetectionResults", bahanText) // Log the result
-            val filteredResults = detectionResults.filter { it.second > 0.3 }
-            filteredIngredients = filteredResults
+            // Assuming `top10Results` contains the top 10 classes and scores
+            val threshold = 0.3f // Adjust the threshold as needed
+            val filteredResults = top10Results.filter { it.second > threshold }
 
+            val finalResult = filteredResults.maxByOrNull { it.second }
+            finalResult?.let {
+                val ingredientClass = it.first
 
-            val ingredientList = resources.getStringArray(R.array.ingredient_list)
-            val spinner = binding.spinner
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ingredientList)
-            spinner.adapter = adapter
-
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    val selectedIngredient = ingredientList[position]
-                    // Check if the selected ingredient already exists in filteredIngredients
-                    if (!filteredIngredients.any { it.first == selectedIngredient }) {
-                        // Add the selected ingredient to filteredIngredients
-                        filteredIngredients = filteredIngredients + Pair(selectedIngredient, 0f)
-                    }
-                }
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    // Do nothing
-                }
+                // Create an Intent to start the ResultActivity
+                val intent = Intent(this, ResultActivity::class.java)
+                // Pass the ingredient class as an extra in the Intent
+                intent.putExtra("ingredientClass", ingredientClass)
+                Log.d("Result : ",ingredientClass)
+                Toast.makeText(this, "Successful Detection: $ingredientClass", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
             }
-            val intent = Intent(this, SearchFragment::class.java)
-            intent.putExtra("filteredIngredients", ArrayList(filteredIngredients))
-            Log.d("DetectionResults", "Starting SearchFragment with filteredIngredients: $filteredIngredients")
-            startActivity(intent)
             model.close()
         }
 

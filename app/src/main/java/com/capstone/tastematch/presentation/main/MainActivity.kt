@@ -53,8 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         fabButton.setOnClickListener {
             val intent = Intent(this, AddDetectionMenuActivity::class.java)
-            startActivity(intent)
-        }
+            startActivity(intent)        }
 
         // Set the default selected menu item
         bottomNavigationView.selectedItemId = R.id.miHome
