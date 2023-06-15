@@ -1,5 +1,6 @@
 package com.capstone.tastematch.data.local.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -12,5 +13,5 @@ interface MenuDao {
     suspend fun insertResponseItems(items: List<ResponseItem>)
 
     @Query("SELECT * FROM menudb")
-    suspend fun getAllResponseItems(): List<ResponseItem>
+    suspend fun getAllResponseItems(): LiveData<List<ResponseItem>>
 }
