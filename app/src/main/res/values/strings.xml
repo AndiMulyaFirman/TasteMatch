@@ -38,4 +38,12 @@
     <string name="image_description">Gambar menu</string>
     <string name="bahan_title">Bahan</string>
     <string name="langkah_pembuatan_title">Langkah Pembuatan</string>
+    <string-array name="ingredient_list">
+        <item>Bawang Putih</item>
+        <item>Bawang Merah</item>
+        <item>Daun Bawang</item>
+        <item>Tahu</item>
+        <item>Telur</item>
+        <item>Tempe</item>
+    </string-array>
 </resources>
