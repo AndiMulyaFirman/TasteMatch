@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         fabButton.setOnClickListener {
-            startActivity(Intent(this, AddDetectionMenuActivity::class.java))
+            val intent = Intent(this, AddDetectionMenuActivity::class.java)
+            startActivity(intent)
         }
 
         // Set the default selected menu item
