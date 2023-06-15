@@ -35,4 +35,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="Setting">Setting</string>
     <string name="menu_img">Gambar Menu</string>
+    <string name="image_description">Gambar menu</string>
+    <string name="bahan_title">Bahan</string>
+    <string name="langkah_pembuatan_title">Langkah Pembuatan</string>
 </resources>

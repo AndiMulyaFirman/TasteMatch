@@ -1,8 +1,9 @@
 package com.capstone.tastematch.data.remote.api
 
-import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Response(
@@ -12,10 +13,11 @@ data class Response(
 @Parcelize
 @Entity(tableName = "menudb")
 data class ResponseItem(
-	val namaMakanan: String? = null,
-	val langkahPembuatan: List<String?>? = null,
-	val jumlahKaloriPerPorsiKkal: Int? = null,
-	val imageURL: String? = null,
+	@PrimaryKey(autoGenerate = true)
 	val id: String? = null,
-	val bahanBahan: List<String?>? = null
+	val menu: String? = null,
+	val langkahPembuatan: List<String?>? = null,
+	val kalori: Int? = null,
+	val imageURL: String? = null,
+	val bahan: List<String?>? = null
 ) : Parcelable
