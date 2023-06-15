@@ -10,7 +10,6 @@ import com.capstone.tastematch.presentation.home.HomeFragment
 import com.capstone.tastematch.presentation.profile.ProfileFragment
 import com.capstone.tastematch.presentation.search.SearchFragment
 import com.capstone.tastematch.presentation.settings.SettingsActivity
-import com.capstone.tastematch.presentation.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
