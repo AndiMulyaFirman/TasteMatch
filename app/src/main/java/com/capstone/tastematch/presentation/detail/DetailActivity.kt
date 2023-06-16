@@ -53,6 +53,7 @@ class DetailActivity : AppCompatActivity() {
                 shareData(it)
             }
         }
+
     }
 
     private fun displayData(responseItem: ResponseItem) {

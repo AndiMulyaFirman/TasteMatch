@@ -17,7 +17,7 @@ class HomeFragment : Fragment() {
     private lateinit var menuAdapter: MenuAdapter
     private val dataList: MutableList<ResponseItem> = mutableListOf()
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-//testttt
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
