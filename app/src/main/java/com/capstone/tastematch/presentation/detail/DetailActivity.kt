@@ -1,8 +1,10 @@
 package com.capstone.tastematch.presentation.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstone.tastematch.R
 import com.capstone.tastematch.data.remote.api.ResponseItem
@@ -33,13 +35,24 @@ class DetailActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         val responseItem = intent.getParcelableExtra<ResponseItem>(EXTRA_RESPONSE_ITEM)
-        responseItem?.let { displayData(it) }
+        responseItem?.let {
+            displayData(it)
+        } ?: run {
+            Toast.makeText(this, "Data tidak tersedia", Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
         val fabBack: FloatingActionButton = findViewById(R.id.fabBack)
         fabBack.setOnClickListener {
             onBackPressed()
         }
 
+        val fabShare: FloatingActionButton = findViewById(R.id.fabShare)
+        fabShare.setOnClickListener {
+            responseItem?.let {
+                shareData(it)
+            }
+        }
     }
 
     private fun displayData(responseItem: ResponseItem) {
@@ -65,6 +78,15 @@ class DetailActivity : AppCompatActivity() {
                     textViewLangkahPembuatan.text = langkahPembuatanText
                 }
             }
+    }
+
+    private fun shareData(responseItem: ResponseItem) {
+        val websiteURL = "https://www.example.com"
+        val shareText = "Coba resep makanan ini: ${responseItem.menu}\n\n${responseItem.imageURL}\n\nLihat resep lengkap di: $websiteURL"
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
+        startActivity(Intent.createChooser(shareIntent, "Bagikan via"))
     }
 
     companion object {
