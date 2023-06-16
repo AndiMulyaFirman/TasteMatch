@@ -2,7 +2,7 @@
     <string name="app_name">TasteMatch</string>
     <string name="app_Desc">Indonesian Meal Recommendation</string>
     <string name="login_lable">Login</string>
-    <string name="dont_have_account">Don\\\'t have account?</string>
+    <string name="dont_have_account">Don\'t have account?</string>
     <string name="email_format">\\\'@\\\' Use Email Fromat!</string>
     <string name="password_min">password of at least 8 characters</string>
     <string name="register_lable">Register</string>

@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_marginTop="168dp"
+            android:fontFamily="@font/itcbook"
             android:alpha="0"
             android:text="@string/data_user_lable"
             android:textAlignment="center"
@@ -37,7 +38,7 @@
 
         <EditText
             android:id="@+id/edt_name"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="31dp"
             android:alpha="0"
@@ -53,7 +54,7 @@
 
         <EditText
             android:id="@+id/edt_age"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:alpha="0"
@@ -69,7 +70,7 @@
 
         <EditText
             android:id="@+id/edt_height"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:alpha="0"
@@ -85,7 +86,7 @@
 
         <EditText
             android:id="@+id/edt_weight"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:alpha="0"
@@ -101,7 +102,7 @@
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="16dp"
             android:alpha="0"

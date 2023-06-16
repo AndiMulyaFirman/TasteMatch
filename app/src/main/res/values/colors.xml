@@ -11,6 +11,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#8692f7</color>
+    <color name="preference_category_title_color">#FF0000</color>
 
     <color name="cyberpunk_button_background">#FF2FAC</color>
     <color name="cyberpunk_button_background_focused">#FF00FF</color>

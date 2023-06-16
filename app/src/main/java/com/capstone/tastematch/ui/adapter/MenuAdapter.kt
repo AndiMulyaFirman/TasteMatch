@@ -37,11 +37,6 @@ class MenuAdapter(private val context: Context, private var dataList: List<Respo
         return dataList.size
     }
 
-    fun setDataList(newDataList: List<ResponseItem>) {
-        dataList = newDataList
-        notifyDataSetChanged()
-    }
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val foodImageView: ShapeableImageView = itemView.findViewById(R.id.image_photo)
         private val foodNameTextView: TextView = itemView.findViewById(R.id.text_name)
@@ -51,7 +46,6 @@ class MenuAdapter(private val context: Context, private var dataList: List<Respo
             // Set item data to views
             foodNameTextView.text = responseItem.menu
             createdAtTextView.text = responseItem.kalori.toString()
-
             // Load image with Glide and placeholder
             Glide.with(itemView)
                 .load(responseItem.imageURL)

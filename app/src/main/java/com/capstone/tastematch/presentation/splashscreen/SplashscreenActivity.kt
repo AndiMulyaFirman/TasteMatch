@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -33,7 +34,13 @@ class SplashscreenActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         playAnimation()
+
+        // Delay navigation to the next screen after 2000 milliseconds
+        Handler().postDelayed({
+            navigateToNextScreen()
+        }, 2500)
     }
+
     private fun playAnimation() {
         val title1 = ObjectAnimator.ofFloat(binding.tvNameApp, View.ALPHA, 1f).setDuration(1000)
         val title2 = ObjectAnimator.ofFloat(binding.tvDescApp, View.ALPHA, 1f).setDuration(1500)
@@ -43,9 +50,8 @@ class SplashscreenActivity : AppCompatActivity() {
             start()
         }
     }
-    override fun onStart() {
-        super.onStart()
 
+    private fun navigateToNextScreen() {
         val currentUser = FirebaseAuth.getInstance().currentUser
         val userId = currentUser?.uid
 

@@ -25,6 +25,7 @@
             android:layout_height="42dp"
             android:layout_marginTop="272dp"
             android:alpha="0"
+            android:fontFamily="@font/itcbook"
             android:text="@string/login_lable"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -37,7 +38,7 @@
 
         <com.capstone.tastematch.ui.costumeview.EmailEditText
             android:id="@+id/edt_email"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="40dp"
             android:alpha="0"
@@ -53,7 +54,7 @@
 
         <com.capstone.tastematch.ui.costumeview.PasswordEditText
             android:id="@+id/edt_password"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="53dp"
             android:layout_marginTop="12dp"
             android:alpha="0"
@@ -70,11 +71,11 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="363dp"
+            android:layout_width="300dp"
             android:layout_height="52dp"
             android:layout_marginTop="12dp"
             android:alpha="0"
-            android:background="@drawable/background_border"
+            android:background="@drawable/button_background"
             android:text="@string/login_lable"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,29 +86,28 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="272dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/itcitalic"
             android:text="@string/dont_have_account"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
         <TextView
             android:id="@+id/tv_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="272dp"
+            android:layout_width="49dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="24dp"
             android:text="@string/register_lable"
-            android:textColor="@color/light_blue_A200"
+            android:textColor="@color/black"
+            android:fontFamily="@font/itcbook"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.114"
+            app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

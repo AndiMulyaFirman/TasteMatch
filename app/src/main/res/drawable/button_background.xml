@@ -12,7 +12,7 @@
     </item>
     <item>
         <shape>
-            <solid android:color="#2E2E2E" /> <!-- Button background color when not pressed -->
+            <solid android:color="#78886E" /> <!-- Button background color when not pressed -->
             <corners android:radius="8dp" /> <!-- Corner radius for rounded corners -->
             <padding
                 android:left="16dp"

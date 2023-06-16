@@ -31,7 +31,7 @@ class SearchAdapter(private val context: Context, private var dataList: List<Res
         val currentItem = dataList[position]
 
         holder.foodNameTextView.text = currentItem.menu
-        holder.caloriesTextView.text = currentItem.kalori.toString()
+        holder.caloriesTextView.text = "${currentItem.kalori} kkal / serving"
 
         Glide.with(context)
             .load(currentItem.imageURL)

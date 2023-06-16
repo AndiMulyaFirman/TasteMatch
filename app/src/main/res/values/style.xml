@@ -5,10 +5,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="preferenceCategoryStyle">@style/PreferenceCategoryStyle</item>
     </style>
     <style name="ShapeAppearanceOverlay.MyApp.ImageView.Large" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
+
+    <style name="PreferenceCategoryStyle" parent="Preference.Category.Material">
+        <item name="android:textAppearance">@style/PreferenceCategoryTitleStyle</item>
+    </style>
+
 
 </resources>

@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/text_name"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/itcbook"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
@@ -24,7 +25,7 @@
         android:layout_below="@id/image_photo"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/createdAt"

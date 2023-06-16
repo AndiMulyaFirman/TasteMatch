@@ -58,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
     private fun displayData(responseItem: ResponseItem) {
         Picasso.get().load(responseItem.imageURL).into(imageView)
         textViewNamaMakanan.text = responseItem.menu
-        textViewKalori.text = "Kalori: ${responseItem.kalori} Kkal"
+        textViewKalori.text = "Kalori: ${responseItem.kalori} Kkal // Serving"
 
         // Mengambil data dari Firestore berdasarkan menu
         val menu = responseItem.menu
@@ -81,8 +81,8 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun shareData(responseItem: ResponseItem) {
-        val websiteURL = "https://www.example.com"
-        val shareText = "Coba resep makanan ini: ${responseItem.menu}\n\n${responseItem.imageURL}\n\nLihat resep lengkap di: $websiteURL"
+        val websiteURL = "https://bit.ly/TasteMatchApps"
+        val shareText = "Coba resep makanan ini: ${responseItem.menu}\nLihat resep lengkap di: $websiteURL"
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
