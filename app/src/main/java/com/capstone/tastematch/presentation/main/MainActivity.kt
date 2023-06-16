@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var fabButton: FloatingActionButton
 
+    override fun onBackPressed() {
+        // Do nothing to disable the back button
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
